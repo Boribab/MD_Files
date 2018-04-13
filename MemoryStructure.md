@@ -26,7 +26,7 @@
 + `함수 호출 시 생성`되고, `함수가 끝나면 시스템에 반환`
 + 런타임 시에 스택 사이즈를 바꿀 수는 없음
 + stack영역에서의 주소 값은 시작 주소는 밑에서부터(먼저 선언된 순서) 그 다음 주소는 순서대로 정해짐
-## Overflow
+## Overflow 
 1. **HEAP overflow** : heap이 위에서부터 주소값을 채워져 내려오다가 `stack영역을 침범`하는 경우
 2. **STACK overflow** : stack영역이 `heap을 침범`
 ## Example Code
