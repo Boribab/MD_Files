@@ -1,50 +1,50 @@
-'''
-단계
+# 웹 드라이버가 있음
+# 웹 드라이버 역할 : 웹 문서를 분석하고 이를 활용하여 화면 구성 웹 문서에 이벤트를 전달하고 결과값을 받음
+# 웹 드라이버가 제공하는 방법으로 서로 주고 받아야 함
 
-Selenium 설정
-네이버 이동 후 분석
-	검색어 창의 태그 분석
-	검색어 창으로 원하는 입력 값 전송
-검색 후 결과창 분석
-	블로그, 카페, 뉴스 등
-	클래스 구분이 띄어쓰기인 것을 알 수 있음
-		Ctrl + F => .클래스명으로 고유한 값인지 확인
-'''
+# 웹 드라이버를 직접 다루는 것 == 브라우저를 만드는 것 
 
+# selenium : 일종의 서버 프로그램인데 라이브러리로 제공
+# 다양한 브라우저의 웹 드라이버 컨트롤
+
+'''
+try ~ except ~ finally
+
+try안의 코드를 수행하다가 에러가 발생하면 발생한 시점 이후의 코드는 수행하지 않고 except로 가서 코드를 수행한다
+finally는 에러 여부와 상관없이 무조건 수행
+'''
+# 크롬 브라우저를 띄우기 위해 selenium으로 웹 드라이버를 가져옴
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys 
 
+# 크롬 드라이버로 크롬 브라우저를 실행
 driver = webdriver.Chrome('chromedriver')
 
 try:
-	driver.get('http://www.naver.com')
+	# 네이버 뉴스 페이지로 이동
+	driver.get('http://news.naver.com')
+	# 네이버 뉴스임을 알 수 있도록 현재 타이틀 출력
 	print(driver.title)
 
-	elem = driver.find_element_by_id('query')
-	elem.clear()
-	# clear()를 해주는 이유는 간혹 포털마다
-	# 검색어가 이미 입력되어 있는 경우가 있기 때문
-	elem.send_keys('히오스')
-	elem.send_keys(Keys.RETURN)
+	# 최근 뉴스 목록을 가진 div id 태그를 가져옴
+	title_id = driver.find_element_by_id('right.ranking_contents')
 
-	blogs = driver.find_element_by_class_name('_blogBase')
-	blogs_list = blogs.find_elements_by_tag_name('li')
-	# blogs_list의 자료형은 list
-	for post in blogs_list:
-		# print(post.text)
-		# print('-'*20)
+	# 위 div_id 안에 li 태그로 구분 되어있는 정보를 가져와 리스트로 저장
+	news_list = title_id.find_elements_by_tag_name('li')
 
-		post_title = post.find_element_by_class_name('sh_blog_title')
-		# print(post_title.text)
-		# 여기서 한 가지 의문 무엇 => ...나오는 것
-		print(post_title.get_attribute('title'))
-		# ...으로 title이 생략되어 있는 부분의 제목을 출력하기 => 속성 : title
-		# 응용 : URL도 같이 ㄱ
-		print(post_title.get_attribute('href'))
-		print('-'*20)
+	# 가져온 태그들에 대해 반복문을 수행하면서 각각의 문자열을 출력
+	for news in news_list:
+		print(news.text)
 
 except Exception as e:
 	print(e)
 
 finally:
-	driver.close()
+	# 브라우저 종료
+	driver.quit() 
+
+
+'''
+1. 필요한 정보를 크롤링하는 과제
+2. 쪽지시험 
+3. 기술 문서 
+'''

@@ -1,0 +1,18 @@
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import smtplib
+
+SMTP_
+
+SERVER
+PORT
+USER
+PASSWORD
+
+MIMEMultipart()
+From To Subject
+
+MIMEText(_text = ~~~, _charset = 'utf-8')
+
+smtplib.SMTP_SSL(server, port)
+
