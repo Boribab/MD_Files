@@ -1,0 +1,3 @@
+﻿  GameClient.cpp
+d:\jumpup\jumpup\day9-c\hangman.hpp(63): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  day9-C.vcxproj -> D:\JumpUp\JumpUp\Debug\day9-C.exe

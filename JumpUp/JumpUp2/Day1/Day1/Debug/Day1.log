@@ -1,0 +1,2 @@
+﻿  PacketCapture1.c
+d:\jumpup\jumpup2\day1\day1\packetcapture1.c(2): fatal error C1083: 포함 파일을 열 수 없습니다. 'pcap.h': No such file or directory

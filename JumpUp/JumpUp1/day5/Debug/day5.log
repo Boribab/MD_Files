@@ -1,0 +1,4 @@
+﻿  10-OpenChallenge.cpp
+d:\jumpup\jumpup\day5\10-openchallenge.cpp(63): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  day5.vcxproj -> D:\JumpUp\JumpUp\Debug\day5.exe
+  day5.vcxproj -> D:\JumpUp\JumpUp\Debug\day5.pdb (Partial PDB)
